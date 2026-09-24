@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Яндекс Карты",
+    "href": "https://yandex.com/maps/org/intellekt/104722408925/",
+    "icon": "/assets/platforms/yandex.png"
+  },
+  {
+    "name": "2ГИС",
+    "href": "https://2gis.ru/bratsk/firm/70000001021877708",
+    "icon": "/assets/platforms/2gis.png"
+  },
+  {
+    "name": "Zoon",
+    "href": "https://zoon.ru/bratsk/kids/shkola_skorochteniya_i_razvitiya_intellekt_na_prospekte_lenina/",
+    "icon": "/assets/platforms/zoon.png"
+  },
+  {
+    "name": "ВКонтакте",
+    "href": "https://vk.ru/intellect_bratsk",
+    "icon": "/assets/platforms/vk.png"
+  }
+]

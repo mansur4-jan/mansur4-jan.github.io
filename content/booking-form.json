@@ -1,0 +1,16 @@
+{
+  "key": "trial-booking",
+  "component": "components/BookingForm.tsx",
+  "transport": "mailto",
+  "recipient": "school_bratsk@mail.ru",
+  "fields": {
+    "parent": { "required": true, "normalize": "trim", "maxLength": 100 },
+    "child": { "required": true, "normalize": "trim", "maxLength": 100 },
+    "age": { "required": false, "type": "integer", "min": 1, "max": 18 },
+    "phone": { "required": true, "validation": "8–15 digits; plus, whitespace, hyphens and parentheses allowed; plausibility only" },
+    "consent": { "required": true, "type": "checkbox" }
+  },
+  "storage": "none",
+  "success": "No delivery success claimed. Visitor sends prepared message in their email client.",
+  "deliveryVerified": false
+}
