@@ -1249,3 +1249,86 @@ html:has(:is(#intellect-home, #intellect-site)) { scroll-padding: 0; }
 @media (max-width:520px) { #intellect-site .inner-teachers { grid-template-columns:1fr; } }
 #intellect-site .inner-prose .inner-review { padding:28px; border-radius:26px; background:var(--canvas); }
 #intellect-site .inner-review cite { font-style:normal; font-size:14px; color:var(--muted); }
+
+/* Mobile homepage: compact reading order; desktop composition stays intact. */
+#intellect-home .program-mobile-link, #intellect-home .team-slider-controls { display:none; }
+#intellect-home .team-slider { min-width:0; }
+#intellect-home .team-grid:focus-visible { outline:2px solid #16748f; outline-offset:4px; }
+@media (max-width:700px) {
+ #intellect-home .home-shell { gap:28px; }
+ #intellect-home .reference-services-hero .section-inner { padding:24px 20px 20px; }
+ #intellect-home .reference-hero-contacts { margin-bottom:12px; font-size:11px; }
+ #intellect-home .reference-hero-heading { gap:16px; margin-bottom:16px; }
+ #intellect-home .reference-hero-heading .hero-school-title { font-size:clamp(26px,7vw,32px) !important; line-height:1.12 !important; }
+ #intellect-home .reference-hero-action { max-width:none; }
+ #intellect-home .reference-hero-action .button { width:100%; min-height:48px; }
+ #intellect-home .reference-four-tiles { grid-template-columns:repeat(2,minmax(0,1fr)); grid-template-rows:auto auto; gap:10px; }
+ #intellect-home .reference-tile-consult { display:none; }
+ #intellect-home .reference-four-tiles .reference-tile-all { grid-column:1 / -1; min-height:60px; height:auto; padding:12px 16px; display:flex; flex-direction:row; justify-content:space-between; align-items:center; border-radius:20px; gap:12px; }
+ #intellect-home .reference-tile-all strong { font-size:18px; line-height:1.2; }
+ #intellect-home .reference-tile-all strong br { display:none; }
+ #intellect-home .reference-tile-all strong br::after { content:' '; }
+ #intellect-home .reference-tile-all .tile-button { margin:0; padding:8px 10px; min-height:36px; font-size:11px; }
+ #intellect-home .reference-tile-all .tile-illustration { display:none; }
+ #intellect-home .reference-four-tiles .hero-media-tile { height:clamp(100px,19svh,155px); min-height:0; padding:0; border-radius:20px; }
+
+ #intellect-home .home-programs .section-inner { padding:28px 16px; }
+ #intellect-home .home-program-panels { display:flex; flex-direction:column; gap:10px; }
+ #intellect-home .program-heading { margin-bottom:10px; }
+ #intellect-home .program-heading h2 { font-size:38px; line-height:1.05; letter-spacing:-.045em; }
+ #intellect-home .program-heading h2 br { display:none; }
+ #intellect-home .home-program-panels .program-illustrated-card { display:grid; grid-template-columns:88px minmax(0,1fr); gap:14px; width:100%; height:auto; min-height:112px; padding:10px; border-radius:20px; background:var(--canvas); box-shadow:none; }
+ #intellect-home .program-illustrated-card .program-animation { position:relative; inset:auto; width:88px; height:100%; min-height:92px; border-radius:14px; }
+ #intellect-home .program-illustrated-card .program-animation :is(img,video) { position:absolute; inset:0; width:100%; height:100%; }
+ #intellect-home .program-illustrated-card .program-card-body { position:static; inset:auto; min-height:0; padding:2px 0; display:flex; flex-direction:column; justify-content:center; gap:6px; }
+ #intellect-home .program-illustrated-card h3 { padding:0; margin:0; max-width:100%; font-size:16px; line-height:1.25; letter-spacing:-.025em; font-weight:500; color:var(--ink); background:none; box-shadow:none; backdrop-filter:none; -webkit-backdrop-filter:none; border-radius:0; }
+ #intellect-home .program-illustrated-card .program-duration { position:static; align-self:flex-start; margin:0; padding:0; font-size:12px; line-height:1.35; background:none; box-shadow:none; backdrop-filter:none; -webkit-backdrop-filter:none; color:var(--muted); }
+ #intellect-home .program-mobile-link { display:block; font-size:12px; color:#76503a; text-decoration:underline; text-underline-offset:3px; }
+ #intellect-home .program-consultation { padding-top:18px; gap:14px; }
+ #intellect-home .program-consultation h3 { font-size:22px; }
+ #intellect-home .program-consultation p { font-size:14px; }
+ #intellect-home .program-consultation .button { width:100%; }
+
+ #intellect-home .home-advantages .section-inner { padding:28px 16px; }
+ #intellect-home .advantages-heading { margin-bottom:22px; }
+ #intellect-home .advantages-heading .eyebrow { margin-bottom:12px; font-size:11px; }
+ #intellect-home .advantages-heading h2 { font-size:30px; line-height:1.1; }
+ #intellect-home .advantages-heading > p { margin-top:14px; font-size:15px; line-height:1.5; }
+ #intellect-home .advantages-mosaic { gap:10px; }
+ #intellect-home .advantage-card { padding:18px; border-radius:20px; min-height:0; gap:0; }
+ #intellect-home .advantage-card h3, #intellect-home .advantage-lifelong h3 { font-size:23px; line-height:1.15; }
+ #intellect-home .advantage-card p, #intellect-home .advantage-lifelong p { font-size:14px; line-height:1.5; margin:10px 0 0; }
+ #intellect-home .advantage-kicker { margin-bottom:10px; font-size:10px; }
+ #intellect-home .advantage-photo { height:140px; border-radius:16px; margin-top:16px; }
+ #intellect-home .advantage-tags { padding-top:14px; margin-top:0; gap:6px; }
+ #intellect-home .advantage-tags li { min-height:27px; padding:4px 9px; font-size:11px; }
+ #intellect-home .advantage-connections, #intellect-home .advantage-flow, #intellect-home .advantage-horizon, #intellect-home .advantage-own-choice, #intellect-home .advantage-method-mark { display:none; }
+ #intellect-home .advantage-independent .advantage-tags, #intellect-home .advantage-method .advantage-tags { padding-top:14px; }
+
+ #intellect-home .home-team .section-inner { padding:28px 16px; }
+ #intellect-home .home-team .section-heading { display:block; margin-bottom:22px; }
+ #intellect-home .home-team .eyebrow { margin-bottom:12px; }
+ #intellect-home .home-team h2 { font-size:30px; line-height:1.1; }
+ #intellect-home .home-team .section-heading > p { margin-top:14px; font-size:14px; }
+ #intellect-home .team-grid { display:flex; width:100%; gap:14px; overflow-x:auto; scroll-snap-type:x mandatory; overscroll-behavior-x:contain; padding:0 0 12px; scrollbar-width:thin; scrollbar-color:#9aacb1 transparent; }
+ #intellect-home .team-card { flex:0 0 88%; min-width:0; scroll-snap-align:start; }
+ #intellect-home .team-photo { height:230px; aspect-ratio:auto; border-radius:22px; }
+ #intellect-home .team-info { padding:16px 0 0; }
+ #intellect-home .team-info h3 { font-size:22px; }
+ #intellect-home .team-info p { font-size:14px; margin-top:8px; }
+ #intellect-home .teacher-placeholder { padding:18px; }
+ #intellect-home .team-slider-controls { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-top:12px; font-size:13px; color:var(--muted); }
+ #intellect-home .team-slider-controls > span > span { margin-left:12px; }
+ #intellect-home .team-slider-controls > div { display:flex; gap:8px; }
+ #intellect-home .team-slider-controls button { width:44px; height:44px; border-radius:50%; background:var(--canvas); color:var(--ink); font-size:22px; }
+ #intellect-home .team-slider-controls button:disabled { opacity:.35; cursor:default; }
+}
+@media (max-width:700px) and (max-height:700px) {
+ #intellect-home .reference-services-hero .section-inner { padding-block:18px 14px; }
+ #intellect-home .reference-hero-heading .hero-school-title { font-size:25px !important; }
+ #intellect-home .reference-hero-contacts { margin-bottom:8px; }
+ #intellect-home .reference-hero-heading { gap:12px; margin-bottom:12px; }
+ #intellect-home .reference-four-tiles { gap:8px; }
+ #intellect-home .reference-four-tiles .reference-tile-all { min-height:48px; padding:8px 12px; }
+ #intellect-home .reference-four-tiles .hero-media-tile { height:90px; }
+}
