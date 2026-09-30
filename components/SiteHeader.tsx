@@ -5,6 +5,7 @@ import { BookingButton } from "@/components/BookingButton";
 
 import Link from "next/link";
 import { HomeIcon } from "@/components/HomeIcon";
+import platforms from "@/content/school-platforms.json";
 import homeView from "@/content/home-view.json";
 import { useEffect, useRef, useState } from "react";
 
@@ -89,8 +90,13 @@ export function SiteHeader({ homeDesign = false }: { homeDesign?: boolean }) {
     </header>
     <dialog ref={dialog} id="site-menu" className={`site-menu-dialog${booking ? " booking-dialog" : ""}${closing ? " is-closing" : ""}`} aria-labelledby="site-menu-title" onCancel={(event) => { event.preventDefault(); closeMenu(); }} onClick={(event) => { if (event.target === event.currentTarget) closeMenu(); }}>
       <div className="site-menu-panel">
-        <div className="site-menu-heading"><div>{homeDesign && <span className="eyebrow">ИНТЕЛЛЕКТ · БРАТСК</span>}<h2 id="site-menu-title">{booking ? "Записаться на занятие" : "Знакомьтесь со школой"}</h2></div><button className="site-menu-close" onClick={closeMenu} aria-label={booking ? "Закрыть форму" : "Закрыть меню"}>{homeDesign && <span className="menu-close-label">Закрыть</span>}<svg className="close-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"><path d="m6 6 12 12M18 6 6 18" /></svg></button></div>
+        <div className="site-menu-heading"><div>{homeDesign && <span className="eyebrow">ИНТЕЛЛЕКТ · БРАТСК</span>}<h2 id="site-menu-title">{booking ? "Записаться на занятие" : "Меню школы"}</h2></div><button className="site-menu-close" onClick={closeMenu} aria-label={booking ? "Закрыть форму" : "Закрыть меню"}>{homeDesign && <span className="menu-close-label">Закрыть</span>}<svg className="close-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"><path d="m6 6 12 12M18 6 6 18" /></svg></button></div>
         {booking ? <BookingForm /> : <>
+        <div className="mobile-simple-menu">
+          <nav aria-label="Разделы сайта"><Link href="/" onClick={closeMenu}>Главная ↗</Link>{items.map(([label, href]) => <Link href={href} onClick={closeMenu} key={href}>{label} ↗</Link>)}</nav>
+          <div className="mobile-menu-contact"><a href="tel:+73953283344">Позвонить <span>+7 (3953) 28-33-44</span></a><a href="mailto:school_bratsk@mail.ru">Написать на почту ↗</a><a href={platforms[3].href} target="_blank" rel="noreferrer">ВКонтакте ↗</a><a href={platforms[0].href} target="_blank" rel="noreferrer">Как проехать ↗</a></div>
+          <BookingButton className="button button-primary">Бесплатное пробное занятие <span aria-hidden="true">↗</span></BookingButton>
+        </div>
         <nav className="site-menu-links site-menu-mosaic" aria-label="Меню школы">
           {items.map(([label, href]) => <Link className="menu-section-link" href={href} onClick={closeMenu} key={href}>{label}<span aria-hidden="true">↗</span>{homeDesign && <HomeIcon name={href === "/our-courses/" ? "grid" : href === "/about/" ? "book" : "pin"} className="menu-tile-icon" />}</Link>)}
           {homeView.courses.map((course, index) => <Link className={`menu-course-link menu-course-${index + 1}`} href={course.href} onClick={closeMenu} key={course.href}>{homeDesign && <small className="menu-number">{String(index + 1).padStart(2, "0")}</small>}{course.title}<span aria-hidden="true">↗</span></Link>)}

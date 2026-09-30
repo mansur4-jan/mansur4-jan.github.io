@@ -1267,24 +1267,31 @@ html:has(:is(#intellect-home, #intellect-site)) { scroll-padding: 0; }
  #intellect-home .reference-four-tiles .reference-tile-all { grid-column:1 / -1; min-height:60px; height:auto; padding:12px 16px; display:flex; flex-direction:row; justify-content:space-between; align-items:center; border-radius:20px; gap:12px; }
  #intellect-home .reference-tile-all strong { font-size:18px; line-height:1.2; }
  #intellect-home .reference-tile-all strong br { display:none; }
- #intellect-home .reference-tile-all strong br::after { content:' '; }
  #intellect-home .reference-tile-all .tile-button { margin:0; padding:8px 10px; min-height:36px; font-size:11px; }
  #intellect-home .reference-tile-all .tile-illustration { display:none; }
  #intellect-home .reference-four-tiles .hero-media-tile { height:clamp(100px,19svh,155px); min-height:0; padding:0; border-radius:20px; }
 
- #intellect-home .home-programs .section-inner { padding:28px 16px; }
- #intellect-home .home-program-panels { display:flex; flex-direction:column; gap:10px; }
- #intellect-home .program-heading { margin-bottom:10px; }
- #intellect-home .program-heading h2 { font-size:38px; line-height:1.05; letter-spacing:-.045em; }
+ #intellect-home .home-shell > .home-programs { background:transparent; border-radius:0; }
+ #intellect-home .home-programs .section-inner { padding:12px 0 0; container-type:inline-size; }
+ #intellect-home .home-program-panels { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); grid-template-rows:auto repeat(6,clamp(140px,43cqw,195px)) auto; grid-auto-rows:auto; gap:12px; }
+ #intellect-home .program-heading { grid-area:1 / 1 / 2 / 3; margin:0; padding:0 12px 10px; }
+ #intellect-home .program-heading h2 { font-size:40px; line-height:1.05; letter-spacing:-.045em; }
  #intellect-home .program-heading h2 br { display:none; }
- #intellect-home .home-program-panels .program-illustrated-card { display:grid; grid-template-columns:88px minmax(0,1fr); gap:14px; width:100%; height:auto; min-height:112px; padding:10px; border-radius:20px; background:var(--canvas); box-shadow:none; }
- #intellect-home .program-illustrated-card .program-animation { position:relative; inset:auto; width:88px; height:100%; min-height:92px; border-radius:14px; }
- #intellect-home .program-illustrated-card .program-animation :is(img,video) { position:absolute; inset:0; width:100%; height:100%; }
- #intellect-home .program-illustrated-card .program-card-body { position:static; inset:auto; min-height:0; padding:2px 0; display:flex; flex-direction:column; justify-content:center; gap:6px; }
- #intellect-home .program-illustrated-card h3 { padding:0; margin:0; max-width:100%; font-size:16px; line-height:1.25; letter-spacing:-.025em; font-weight:500; color:var(--ink); background:none; box-shadow:none; backdrop-filter:none; -webkit-backdrop-filter:none; border-radius:0; }
- #intellect-home .program-illustrated-card .program-duration { position:static; align-self:flex-start; margin:0; padding:0; font-size:12px; line-height:1.35; background:none; box-shadow:none; backdrop-filter:none; -webkit-backdrop-filter:none; color:var(--muted); }
- #intellect-home .program-mobile-link { display:block; font-size:12px; color:#76503a; text-decoration:underline; text-underline-offset:3px; }
- #intellect-home .program-consultation { padding-top:18px; gap:14px; }
+ #intellect-home .home-program-panels .program-illustrated-card { display:block; width:100%; height:100%; min-height:0; padding:0; border-radius:24px; background:var(--program-surface); }
+ #intellect-home .home-program-panels .program-panel-1 { grid-area:2 / 1 / 3 / 2; }
+ #intellect-home .home-program-panels .program-panel-2 { grid-area:2 / 2 / 4 / 3; }
+ #intellect-home .home-program-panels .program-panel-3 { grid-area:3 / 1 / 4 / 2; }
+ #intellect-home .home-program-panels .program-panel-4 { grid-area:4 / 1 / 5 / 3; }
+ #intellect-home .home-program-panels .program-panel-5 { grid-area:5 / 1 / 7 / 2; }
+ #intellect-home .home-program-panels .program-panel-6 { grid-area:5 / 2 / 6 / 3; }
+ #intellect-home .home-program-panels .program-panel-7 { grid-area:6 / 2 / 7 / 3; }
+ #intellect-home .home-program-panels .program-panel-8 { grid-area:7 / 1 / 8 / 3; }
+ #intellect-home .program-illustrated-card .program-animation { position:absolute; inset:0; width:100%; height:100%; border-radius:0; }
+ #intellect-home .program-illustrated-card .program-card-body { position:absolute; inset:0; min-height:0; padding:10px; display:flex; flex-direction:column; justify-content:space-between; gap:8px; }
+ #intellect-home .program-illustrated-card h3 { padding:8px 10px; margin:0; max-width:100%; font-size:16px; line-height:1.2; letter-spacing:-.025em; font-weight:500; border-radius:14px; background:rgba(255,255,255,.87); color:var(--ink); box-shadow:none; backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); }
+ #intellect-home .program-illustrated-card .program-duration { display:none; }
+ #intellect-home .program-mobile-link { display:block; margin-top:auto; align-self:flex-start; padding:8px 11px; border-radius:30px; background:#fff; font-size:12px; line-height:1.35; color:var(--ink); }
+ #intellect-home .program-consultation { grid-area:8 / 1 / 9 / 3; padding:12px 10px 0; gap:14px; }
  #intellect-home .program-consultation h3 { font-size:22px; }
  #intellect-home .program-consultation p { font-size:14px; }
  #intellect-home .program-consultation .button { width:100%; }
@@ -1332,3 +1339,68 @@ html:has(:is(#intellect-home, #intellect-site)) { scroll-padding: 0; }
  #intellect-home .reference-four-tiles .reference-tile-all { min-height:48px; padding:8px 12px; }
  #intellect-home .reference-four-tiles .hero-media-tile { height:90px; }
 }
+
+/* Mobile moving quick links and native disclosures. */
+.mobile-hero-rail, .mobile-explanation, .mobile-simple-menu, .program-title-short { display:none; }
+@media (max-width:700px) {
+ #intellect-home .reference-four-tiles { display:none; }
+ #intellect-home .mobile-hero-rail { display:block; margin-inline:-10px; }
+ #intellect-home .hero-rail-viewport { width:100%; overflow-x:auto; overscroll-behavior-x:contain; scrollbar-width:none; border-radius:22px; }
+ #intellect-home .hero-rail-viewport::-webkit-scrollbar { display:none; }
+ #intellect-home .hero-rail-track { display:flex; gap:12px; width:max-content; }
+ #intellect-home .hero-rail-tile { position:relative; flex:0 0 150px; width:150px; height:150px; border-radius:22px; overflow:hidden; }
+ #intellect-home a.hero-rail-tile { display:flex; flex-direction:column; align-items:flex-start; padding:14px; gap:8px; }
+ #intellect-home .hero-rail-directions { background:var(--blue); }
+ #intellect-home .hero-rail-map { background:var(--cream); }
+ #intellect-home .hero-rail-tile strong { font-size:21px; line-height:1.12; font-weight:400; letter-spacing:-.035em; }
+ #intellect-home .hero-rail-tile > span { font-size:10px; margin-top:auto; }
+ #intellect-home .hero-rail-tile > .icon { width:22px; height:22px; }
+ #intellect-home .hero-rail-media video { width:100%; height:100%; object-fit:cover; }
+ #intellect-home .hero-rail-control { display:block; margin:4px 0 0 auto; min-height:36px; padding:6px 4px; font-size:11px; color:var(--muted); }
+ #intellect-home .desktop-explanation { display:none; }
+ #intellect-home .mobile-explanation { display:block; width:100%; }
+ #intellect-home .mobile-explanation summary { display:flex; align-items:center; justify-content:space-between; gap:12px; min-height:44px; padding:8px 0 0; cursor:pointer; list-style:none; font-size:13px; }
+ #intellect-home .mobile-explanation summary::-webkit-details-marker { display:none; }
+ #intellect-home .explanation-open { display:none; }
+ #intellect-home .mobile-explanation[open] .explanation-open { display:inline; }
+ #intellect-home .mobile-explanation[open] .explanation-closed { display:none; }
+ #intellect-home .mobile-explanation[open] summary > span:last-child { transform:rotate(45deg); }
+ #intellect-home .advantage-card { padding:16px 18px 10px; }
+ #intellect-home .advantage-card h3, #intellect-home .advantage-lifelong h3 { font-size:21px; line-height:1.2; }
+ #intellect-home .advantage-card h3 br { display:none; }
+ #intellect-home .advantage-photo, #intellect-home .advantage-tags, #intellect-home .advantage-kicker { display:none; }
+ #intellect-home .advantage-card .mobile-explanation p { padding-bottom:10px; }
+ #intellect-home .home-comfort .section-inner { display:block; padding:28px 16px; }
+ #intellect-home .comfort-intro h2 { font-size:29px; line-height:1.12; }
+ #intellect-home .comfort-intro > p { font-size:14px; line-height:1.5; margin:14px 0 16px; }
+ #intellect-home .comfort-intro .button { min-height:44px; font-size:13px; padding:12px 18px; }
+ #intellect-home .comfort-formats { grid-template-columns:repeat(2,minmax(0,1fr)); align-items:start; gap:10px; margin-top:20px; }
+ #intellect-home .comfort-format { padding:14px 12px 8px; min-height:0; border-radius:18px; }
+ #intellect-home .comfort-format h3 { font-size:18px; line-height:1.2; }
+ #intellect-home .comfort-format p { font-size:14px; line-height:1.45; margin:8px 0; }
+ :is(#intellect-home, #intellect-site) .mobile-simple-menu { display:grid; gap:14px; }
+ :is(#intellect-home, #intellect-site) .site-menu-dialog:not(.booking-dialog) .site-menu-mosaic,
+ :is(#intellect-home, #intellect-site) .site-menu-dialog:not(.booking-dialog) .site-menu-bottom { display:none; }
+ :is(#intellect-home, #intellect-site) .site-menu-dialog:not(.booking-dialog) { padding:10px; max-height:100svh; }
+ :is(#intellect-home, #intellect-site) .site-menu-dialog:not(.booking-dialog) .site-menu-panel { padding:18px; border-radius:24px; }
+ :is(#intellect-home, #intellect-site) .site-menu-dialog:not(.booking-dialog) .site-menu-heading { position:static; padding:0; gap:10px; margin:0 0 18px; }
+ :is(#intellect-home, #intellect-site) .site-menu-dialog:not(.booking-dialog) .site-menu-heading .eyebrow { display:none; }
+ :is(#intellect-home, #intellect-site) .site-menu-dialog:not(.booking-dialog) .site-menu-heading h2 { font-size:22px; }
+ :is(#intellect-home, #intellect-site) .site-menu-dialog:not(.booking-dialog) .menu-close-label { display:none; }
+ :is(#intellect-home, #intellect-site) .site-menu-dialog:not(.booking-dialog) .site-menu-close { width:44px; height:44px; padding:0; }
+ :is(#intellect-home, #intellect-site) .mobile-simple-menu nav { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+ :is(#intellect-home, #intellect-site) .mobile-simple-menu nav a { display:flex; align-items:center; min-height:48px; padding:12px; background:var(--canvas); border-radius:14px; font-size:15px; }
+ :is(#intellect-home, #intellect-site) .mobile-menu-contact { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+ :is(#intellect-home, #intellect-site) .mobile-menu-contact a { display:flex; flex-direction:column; justify-content:center; min-height:44px; padding:10px; font-size:13px; border:1px solid var(--line); border-radius:14px; }
+ :is(#intellect-home, #intellect-site) .mobile-menu-contact a:first-child { grid-column:1 / -1; flex-direction:row; justify-content:space-between; gap:8px; }
+ :is(#intellect-home, #intellect-site) .mobile-menu-contact a:nth-child(2) { grid-column:1 / -1; }
+ :is(#intellect-home, #intellect-site) .mobile-simple-menu .button { width:100%; min-height:48px; gap:8px; font-size:13px; }
+}
+@media (max-width:700px) and (max-height:650px) {
+ #intellect-home .hero-rail-tile { flex-basis:126px; width:126px; height:126px; }
+ #intellect-home a.hero-rail-tile { padding:12px; gap:5px; }
+ #intellect-home .hero-rail-tile strong { font-size:19px; }
+}
+@media (prefers-reduced-motion:reduce) { #intellect-home .hero-rail-control { display:none; } }
+
+@media (max-width:700px) { #intellect-home .program-title-full { display:none; } #intellect-home .program-title-short { display:inline; } }

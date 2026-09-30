@@ -8,7 +8,7 @@ const metrics = [
 export function HomeSkills() {
   return <section className="home-method-trust" id="everyday-skills" aria-labelledby="method-trust-title">
     <div className="method-trust-intro">
-      <h2 id="method-trust-title">Методика, которой доверяют</h2>
+      <h2 id="method-trust-title">Обучение в цифрах</h2>
       <p>Сеть по методике<br />Васильевой Л. Л.</p>
     </div>
     {metrics.map(metric => <div className="method-trust-metric" key={metric.label} aria-label={`${metric.scope}: ${metric.value} ${metric.label}`}>

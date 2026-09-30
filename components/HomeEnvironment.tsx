@@ -1,3 +1,4 @@
+import { MobileDisclosure } from "@/components/MobileDisclosure";
 import Link from "next/link";
 
 const formats = [
@@ -19,7 +20,7 @@ export function HomeEnvironment() {
       <div className="comfort-formats">
         {formats.map(format => <article className="comfort-format" key={format.title}>
           <h3>{format.title}</h3>
-          <p>{format.text}</p>
+          <MobileDisclosure><p>{format.text}</p></MobileDisclosure>
         </article>)}
       </div>
     </div>
