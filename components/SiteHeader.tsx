@@ -1,6 +1,7 @@
 "use client";
 
 import { BookingForm } from "@/components/BookingForm";
+import { ResponsiveButtonLabel } from "@/components/ResponsiveButtonLabel";
 import { BookingButton } from "@/components/BookingButton";
 
 import Link from "next/link";
@@ -95,7 +96,7 @@ export function SiteHeader({ homeDesign = false }: { homeDesign?: boolean }) {
         <div className="mobile-simple-menu">
           <nav aria-label="Разделы сайта"><Link href="/" onClick={closeMenu}>Главная ↗</Link>{items.map(([label, href]) => <Link href={href} onClick={closeMenu} key={href}>{label} ↗</Link>)}</nav>
           <div className="mobile-menu-contact"><a href="tel:+73953283344">Позвонить <span>+7 (3953) 28-33-44</span></a><a href="mailto:school_bratsk@mail.ru">Написать на почту ↗</a><a href={platforms[3].href} target="_blank" rel="noreferrer">ВКонтакте ↗</a><a href={platforms[0].href} target="_blank" rel="noreferrer">Как проехать ↗</a></div>
-          <BookingButton className="button button-primary">Бесплатное пробное занятие <span aria-hidden="true">↗</span></BookingButton>
+          <BookingButton className="button button-primary"><ResponsiveButtonLabel desktop="Бесплатное пробное занятие" mobile="Попробовать" /> <span aria-hidden="true">↗</span></BookingButton>
         </div>
         <nav className="site-menu-links site-menu-mosaic" aria-label="Меню школы">
           {items.map(([label, href]) => <Link className="menu-section-link" href={href} onClick={closeMenu} key={href}>{label}<span aria-hidden="true">↗</span>{homeDesign && <HomeIcon name={href === "/our-courses/" ? "grid" : href === "/about/" ? "book" : "pin"} className="menu-tile-icon" />}</Link>)}

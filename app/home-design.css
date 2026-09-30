@@ -1404,3 +1404,39 @@ html:has(:is(#intellect-home, #intellect-site)) { scroll-padding: 0; }
 @media (prefers-reduced-motion:reduce) { #intellect-home .hero-rail-control { display:none; } }
 
 @media (max-width:700px) { #intellect-home .program-title-full { display:none; } #intellect-home .program-title-short { display:inline; } }
+
+/* Compact mobile actions and open photo stories; desktop composition is preserved. */
+:is(#intellect-home, #intellect-site) .button-label-desktop,
+:is(#intellect-home, #intellect-site) .button-label-mobile { font:inherit; }
+:is(#intellect-home, #intellect-site) .button-label-mobile,
+#intellect-home .mobile-trial-note,
+#intellect-home .comfort-mobile-title,
+#intellect-home .comfort-stories { display:none; }
+@media (max-width:700px) {
+ :is(#intellect-home, #intellect-site) .button-label-desktop { display:none; }
+ :is(#intellect-home, #intellect-site) .button-label-mobile { display:inline; }
+ #intellect-home :is(.reference-hero-action,.program-consultation,.first-step-action,.school-visit-copy) .button,
+ :is(#intellect-home, #intellect-site) .mobile-simple-menu .button { width:fit-content; min-height:48px; gap:16px; padding:6px 7px 6px 18px; font-size:14px; align-self:flex-start; }
+ #intellect-home .program-consultation .button { align-self:flex-end; }
+ #intellect-home .reference-hero-action { flex-direction:column; align-items:flex-start; }
+ #intellect-home .mobile-trial-note { display:block; margin:0 0 8px; font-size:12px; line-height:1.4; color:var(--muted); }
+ #intellect-home .program-mobile-link { display:inline-flex; align-items:center; gap:8px; padding:5px 5px 5px 10px; font-size:11px; }
+ #intellect-home .program-mobile-link i { display:grid; place-items:center; width:26px; height:26px; border-radius:50%; background:var(--canvas); font-style:normal; font-size:17px; }
+ #intellect-home .home-shell .home-comfort { background:transparent; border-radius:0; }
+ #intellect-home .home-comfort .section-inner { padding:28px 12px; }
+ #intellect-home .comfort-intro :is(.eyebrow,.comfort-desktop-title,p,.button),
+ #intellect-home .comfort-formats { display:none; }
+ #intellect-home .comfort-mobile-title { display:inline; }
+ #intellect-home .comfort-intro h2 { max-width:280px; font-size:32px; line-height:1.08; margin-bottom:22px; }
+ #intellect-home .comfort-stories { display:grid; gap:22px; }
+ #intellect-home .comfort-story { margin:0; min-width:0; }
+ #intellect-home .comfort-story img { width:100%; height:auto; object-fit:cover; border-radius:22px; }
+ #intellect-home .comfort-story-group img { aspect-ratio:16 / 9; }
+ #intellect-home .comfort-story-group figcaption { padding:12px 2px 0; }
+ #intellect-home .comfort-story h3 { font-size:20px; line-height:1.15; letter-spacing:-.03em; }
+ #intellect-home .comfort-story p { margin:7px 0 0; font-size:14px; line-height:1.45; color:var(--muted); }
+ #intellect-home .comfort-story-practice { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.1fr); gap:14px; align-items:center; }
+ #intellect-home .comfort-story-practice img { aspect-ratio:1; object-position:48% center; border-radius:22px 22px 42px 22px; }
+ #intellect-home .comfort-stories > .button { justify-self:start; width:fit-content; min-height:44px; padding:6px 7px 6px 18px; gap:14px; font-size:14px; border:0; }
+ #intellect-home .comfort-stories > .button > span { width:32px; height:32px; background:var(--canvas); }
+}
