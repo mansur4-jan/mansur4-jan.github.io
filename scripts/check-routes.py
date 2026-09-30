@@ -15,7 +15,7 @@ def check(path):
     try:
         with urllib.request.urlopen(base_url + path, timeout=30) as response:
             body = response.read().decode('utf-8', 'replace')
-            marker = 'home-hero' if path == '/' else 'source-content'
+            marker = 'home-shell' if path == '/' else 'inner-shell'
             return {'path': path, 'status': response.status, 'bytes': len(body), 'hasContent': marker in body}
     except Exception as exc:
         return {'path': path, 'status': 0, 'error': str(exc), 'hasContent': False}

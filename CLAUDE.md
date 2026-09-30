@@ -267,7 +267,7 @@ The user is NOT a developer. They're using Ship Studio to build a website withou
 
 ## Visual language
 
-Current homepage styles are scoped to `#intellect-home` in `app/home-design.css`; preserve that scope and use the existing CSS variables when extending it. The user explicitly asks to continue these styles.
+The shared visual system lives in `app/home-design.css`, scoped with `:is(#intellect-home, #intellect-site)`. Homepage layout stays under its existing root; inner pages use `#intellect-site` and `InnerContent.tsx`. Use the same tokens, header, footer, controls and local Manrope on every page. Inner layouts are defined at the end of that stylesheet; do not restore the legacy Arial styling.
 - Palette: `--ink`, `--muted`, `--paper`, `--canvas`, `--line`; accents `--orange` (currently #f8784a), `--blue`, `--peach`, `--cream`, `--mint`, `--lavender`. No rainbow of new colours.
 - Type: locally hosted Manrope. H1 is strongest; H2 generally 34–60 px, card H3 28–40 px, body 15–17 px. Headings and buttons are light/regular, not heavy bold.
 - UI: `--button-font`, `--button-size`, `--button-motion`; shared hover lifts 2 px and darkens/fills the background, active scales .97. No heavy shadows.
@@ -275,4 +275,6 @@ Current homepage styles are scoped to `#intellect-home` in `app/home-design.css`
 - Benefits use unequal cards, thin decorative lines and wrapping pill tags. Do not turn them into equal icon cards. Photos retain important subjects; new photo variants use AVIF with WebP fallback.
 - Preserve reduced-motion support and ordinary page scrolling. Do not add libraries solely for decorative animations.
 
-Advantages exception: follow the owner’s precise layout in SITE.md and local `--adv-*` colours in `app/home-design.css`; container 1360 px with 60 px desktop inset, 2-column named-area mosaic, mobile stack at 700 px, 34 px pill tags. No hover motion on these cards. These specifications override the earlier general card sizing.
+Advantages exception: follow the owner’s precise layout in SITE.md and local `--adv-*` colours in `app/home-design.css`; container matches the other sections, with 60 px desktop inset, 2-column named-area mosaic, mobile stack at 700 px, 34 px pill tags. No hover motion on these cards. These specifications override the earlier general card sizing.
+
+Inner pages: white rounded sections on `--canvas`; text uses `--ink`/`--muted`; course cards use compressed stills from `program-animations.json`. No new gradients, decorative motion or video downloads on inner pages. Section radius `--radius`, card radius 28–32px, content padding `--inset`, gaps 24–40px. Shared consultation opens the existing booking dialog.

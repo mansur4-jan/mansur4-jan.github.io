@@ -8,17 +8,21 @@ import { HomeReviews } from "@/components/HomeReviews";
 import Link from "next/link";
 import durations from "@/content/program-durations.json";
 import homeView from "@/content/home-view.json";
+import programAnimations from "@/content/program-animations.json";
+import { VisibleAnimation } from "@/components/VisibleAnimation";
 
-const programIcons: HomeIconName[] = ["book", "star", "grid", "pencil", "grid", "clock", "pencil", "flower", "globe"];
+const programIcons: HomeIconName[] = ["book", "star", "grid", "pencil", "grid", "pencil", "flower", "globe"];
+const visiblePrograms = homeView.courses.filter(course => course.href !== "/kindergarten/gruppy-prodlyonnogo-dnya/");
+const animations: Record<string, { src: string; still: string; avif?: string; video?: string; width: number; height: number }> = programAnimations;
 
 const team = [
-  { name: "Преподаватель 1", role: "Педагог по развитию памяти и техники чтения", image: "/assets/teachers/kravtsova.jpg" },
+  { name: "Анна Смирнова", role: "Педагог по чтению и развитию памяти", image: "", example: true },
   { name: "Преподаватель 2", role: "Педагог начального развития", image: "/assets/teachers/shilimovamyu.jpg" },
 ];
 const faq = [
   [
     "Как понять, какая программа подойдёт ребёнку?",
-    "Ориентируемся на возраст, текущие навыки и задачу: подготовка к школе, техника чтения, развитие памяти, внимания, мышления, грамотного письма или счёта. Если сложно выбрать самостоятельно, педагог поможет определить подходящее направление. На сайте школы представлено 9 программ для разных возрастов и задач."
+    "Ориентируемся на возраст, текущие навыки и задачу: подготовка к школе, техника чтения, развитие памяти, внимания, мышления, грамотного письма или счёта. Если сложно выбрать самостоятельно, педагог поможет определить подходящее направление. В блоке программ представлено 8 направлений для разных возрастов и задач."
   ],
   [
     "Поможет ли школа, если ребёнок медленно читает и плохо понимает текст?",
@@ -56,7 +60,17 @@ const faq = [
 
 export function HomeContent() {
   return <>
-    <section className="reference-services-hero"><div className="section-inner"><div className="reference-hero-contacts"><span>Занятия для детей от 4 лет</span><Link href="/contact/">Братск, проспект Ленина, 21</Link><a href="tel:+73953283344">+7 (3953) 28-33-44</a></div><div className="reference-hero-heading"><div><span className="eyebrow">Школа развития в Братске</span><h1>Больше, чем<br />просто <span className="hero-emphasis">занятия</span></h1></div><div className="reference-hero-action"><p>Помогаем детям читать, понимать, запоминать и учиться с интересом.</p><BookingButton className="button button-primary">Записаться на занятие <span aria-hidden="true"><HomeIcon name="arrow" /></span></BookingButton></div></div><div className="reference-service-mosaic reference-four-tiles"><div className="reference-service-tile reference-tile-all"><strong>Все<br />направления</strong><Link className="tile-button" href="/our-courses/">Выбрать программу</Link><HomeIcon name="book" className="tile-illustration" /></div><div className="reference-service-tile reference-tile-shape reference-shape-coral"><span className="tile-shape-word">Авторские<br />программы</span><span className="coral-orbit" aria-hidden="true" /><span className="tile-detail" aria-hidden="true">а → я</span></div><div className="reference-service-tile reference-tile-consult"><strong>Получите<br />консультацию</strong><BookingButton className="tile-button">Записаться на консультацию</BookingButton><HomeIcon name="heart" className="tile-illustration" /></div><div className="reference-service-tile reference-tile-shape reference-shape-blue"><span className="tile-shape-word"><span>Внимание</span> <span>Память</span> <span>Мышление</span></span><i className="tile-star"><HomeIcon name="star" /></i></div></div></div></section>
+    <section className="reference-services-hero"><div className="section-inner"><div className="reference-hero-contacts"><span>Занятия для детей от 4 лет</span><Link href="/contact/">Братск, проспект Ленина, 21</Link><a href="tel:+73953283344">+7 (3953) 28-33-44</a></div><div className="reference-hero-heading"><h1 className="hero-school-title">Помогаем детям читать, понимать, запоминать и учиться с интересом.</h1><div className="reference-hero-action" id="trial-lesson"><BookingButton className="button button-primary">Бесплатное пробное занятие <span aria-hidden="true"><HomeIcon name="arrow" /></span></BookingButton></div></div><div className="reference-service-mosaic reference-four-tiles"><Link className="reference-service-tile reference-tile-all" href="/our-courses/"><strong>Все<br />направления</strong><span className="tile-button">Выбрать программу</span><HomeIcon name="book" className="tile-illustration" /></Link><div className="reference-service-tile reference-tile-shape reference-shape-coral hero-media-tile"><VisibleAnimation className="hero-tile-media" src="/assets/hero/classroom.mp4" poster="/assets/hero/classroom-still.webp" width={518} height={518} /></div><div className="reference-service-tile reference-tile-consult"><strong>Получите<br />консультацию</strong><BookingButton className="tile-button">Записаться на консультацию</BookingButton><HomeIcon name="heart" className="tile-illustration" /></div><div className="reference-service-tile reference-tile-shape reference-shape-blue hero-media-tile"><VisibleAnimation className="hero-tile-media" src="/assets/hero/boy.mp4" poster="/assets/hero/boy-still.webp" width={518} height={518} /></div></div></div></section>
+    <section className="home-programs" id="programs"><div className="section-inner"><div className="program-grid home-program-panels"><div className="section-heading program-heading"><h2>Наши<br />программы</h2></div>{visiblePrograms.map((course, index) => {
+      const animation = animations[course.href];
+      return <Link id={`program-${index + 1}`} className={`program-card program-panel program-panel-${index + 1} program-illustrated-card${animation && animation.width / animation.height > 1.5 ? " program-landscape" : ""}`} href={course.href} key={course.href}>
+        {animation?.video ? <VisibleAnimation className="program-animation" src={animation.video} poster={animation.still} width={animation.width} height={animation.height} /> : animation ? <picture className="program-animation">
+          {animation.avif ? <source type="image/avif" srcSet={animation.avif} /> : <source media="(prefers-reduced-motion: reduce)" srcSet={animation.still} />}
+          <Image src={animation.src} alt="" width={animation.width} height={animation.height} loading="lazy" unoptimized />
+        </picture> : <div className="program-animation program-animation-placeholder" aria-hidden="true"><HomeIcon name={programIcons[index]} /></div>}
+        <div className="program-card-body"><span className="program-status">0{index + 1}</span><div className="program-caption"><h3>{course.title}</h3>{durations.find(item => item.href === course.href)?.duration && <p className="program-duration">{durations.find(item => item.href === course.href)?.duration}</p>}<span className="program-more" aria-hidden="true"><span><HomeIcon name="diagonal" /></span></span></div></div>
+      </Link>;
+    })}<div className="program-consultation" id="program-consultation"><div><h3>Какое направление подойдёт ребёнку?</h3><p>Расскажите, что хочется улучшить — поможем выбрать программу и ответим на вопросы.</p></div><BookingButton className="button button-primary">Получить консультацию <span aria-hidden="true"><HomeIcon name="arrow" /></span></BookingButton></div></div></div></section>
     <section id="about-school" className="home-about-statement" aria-label="Как мы помогаем детям учиться">
       <svg className="statement-doodle statement-pencil" viewBox="0 0 80 80" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="m18 56 36-36 10 10-36 36-14 4 4-14Z M48 26l10 10 M18 56l10 10 M14 70l7-2" /></svg>
       <div className="statement-copy">
@@ -68,19 +82,8 @@ export function HomeContent() {
       <svg className="statement-doodle statement-book" viewBox="0 0 80 80" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="M40 22C29 14 17 15 10 18v42c10-4 20-3 30 4 10-7 20-8 30-4V18c-7-3-19-4-30 4v42 M18 27c5-1 10 0 15 3 M18 36c5-1 10 0 15 3 M47 30c5-3 10-4 15-3 M47 39c5-3 10-4 15-3" /></svg>
       <svg className="statement-doodle statement-spark" viewBox="0 0 80 80" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><path d="m40 8 8 24 24 8-24 8-8 24-8-24-24-8 24-8Z M65 8v12 M59 14h12" /></svg>
     </section>
-    <section className="home-trial-photo" id="trial-lesson" aria-labelledby="trial-lesson-title">
-      <picture className="trial-media">
-        <Image src="/wp-content/uploads/2019/11/img_7813.jpg" alt="Педагог занимается с ребёнком в школе «Интеллект»" fill unoptimized sizes="100vw" />
-      </picture>
-      <div className="trial-photo-copy">
-        <h2 id="trial-lesson-title">Бесплатное<br />пробное занятие</h2>
-        <p>Чтобы <span>понять способности</span> ребёнка, запишитесь на занятие.</p>
-        <BookingButton className="button button-primary">Записаться на занятие <span aria-hidden="true"><HomeIcon name="arrow" /></span></BookingButton>
-      </div>
-    </section>
-    <section className="home-programs" id="programs"><div className="section-inner"><div className="section-heading"><div><span className="eyebrow">Выберите направление</span><h2>Наши программы</h2></div><p>Девять направлений для развития памяти, мышления, речи и самостоятельности.</p></div><div className="program-grid home-program-panels">{homeView.courses.map((course, index) => <Link className={`program-card program-panel program-panel-${index + 1}`} href={course.href} key={course.href}><div className="program-card-body"><span className="program-status">0{index + 1}</span><h3>{course.title}</h3>{durations.find(item => item.href === course.href)?.duration && <p className="program-duration">{durations.find(item => item.href === course.href)?.duration}</p>}<span className="program-more">Открыть направление <span><HomeIcon name="diagonal" /></span></span></div><HomeIcon name={programIcons[index]} className="program-art" /></Link>)}</div></div></section>
     <HomeAdvantages />
-    <section id="team" className="home-team"><div className="section-inner"><div className="section-heading"><div><span className="eyebrow">Команда школы</span><h2>Люди, которым доверяют дети</h2></div><p>Педагоги помогают замечать сильные стороны ребёнка и превращать обучение в понятный маршрут.</p></div><div className="team-grid">{team.map((person, index) => <article className={`team-card team-card-${index + 1}`} key={person.name}><div className="team-photo"><Image src={person.image} alt={person.name} fill sizes="(max-width: 700px) 100vw, 33vw" /><span className="teacher-badge" aria-hidden="true">0{index + 1}</span></div><div className="team-info"><span>0{index + 1}</span><h3>{person.name}</h3><p>{person.role}</p></div></article>)}<article className="team-card team-card-3"><div className="team-photo"><div className="teacher-placeholder"><span className="teacher-outline"><HomeIcon name="person" /></span><span>Фото добавим позже</span></div><span className="teacher-badge">03</span></div><div className="team-info"><h3>Преподаватель 3</h3><p>Информация о преподавателе появится здесь.</p></div></article></div></div></section>
+    <section id="team" className="home-team"><div className="section-inner"><div className="section-heading"><div><span className="eyebrow">Команда школы</span><h2>Люди, которым доверяют дети</h2></div><p>Педагоги помогают замечать сильные стороны ребёнка и превращать обучение в понятный маршрут.</p></div><div className="team-grid">{team.map((person, index) => <article className={`team-card team-card-${index + 1}`} key={person.name}><div className="team-photo">{person.example ? <div className="teacher-placeholder"><span className="teacher-outline"><HomeIcon name="person" /></span><span>Пример оформления карточки</span></div> : <Image src={person.image} alt={person.name} fill sizes="(max-width: 700px) 100vw, 33vw" />}<span className="teacher-badge">{person.example ? "Пример" : `0${index + 1}`}</span></div><div className="team-info"><span>0{index + 1}</span><h3>{person.name}</h3><p>{person.role}</p></div></article>)}<article className="team-card team-card-3"><div className="team-photo"><div className="teacher-placeholder"><span className="teacher-outline"><HomeIcon name="person" /></span><span>Фото добавим позже</span></div><span className="teacher-badge">03</span></div><div className="team-info"><h3>Преподаватель 3</h3><p>Информация о преподавателе появится здесь.</p></div></article></div></div></section>
     <div className="home-benefits-screen" id="benefits">
     <HomeSkills />
     <HomeEnvironment />

@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { SitePage, getPage, getPaths } from "@/components/SitePage";
+import { SitePage, getPage, getPaths, labelFor } from "@/components/SitePage";
 
 export function generateStaticParams() {
   return getPaths().filter((path) => path !== "/").map((path) => ({ slug: path.split("/").filter(Boolean) }));
@@ -10,7 +10,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const path = "/" + slug.join("/") + "/";
   const page = getPage(path);
-  return { title: page ? page.title + " — ИНТЕЛЛЕКТ" : "Страница не найдена — ИНТЕЛЛЕКТ" };
+  return { title: page ? labelFor(path) + " — ИНТЕЛЛЕКТ" : "Страница не найдена — ИНТЕЛЛЕКТ" };
 }
 
 export default async function ContentPage({ params }: { params: Promise<{ slug: string[] }> }) {

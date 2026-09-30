@@ -1,0 +1,58 @@
+{
+  "/kindergarten/tehnika-chteniya-razvitie-pamyati/": {
+    "src": "/assets/programs/reading-technique-image.webp",
+    "avif": "/assets/programs/reading-technique-image.avif",
+    "still": "/assets/programs/reading-technique-image.webp",
+    "width": 900,
+    "height": 754
+  },
+  "/kindergarten/skorochtenie/": {
+    "src": "/assets/programs/speed-reading.webp",
+    "still": "/assets/programs/speed-reading-still.webp",
+    "width": 480,
+    "height": 271,
+    "video": "/assets/programs/speed-reading.mp4"
+  },
+  "/kindergarten/sekretnaya-tablitsa-umnozheniya-za-21-zanyatie/": {
+    "src": "/assets/programs/multiplication.webp",
+    "still": "/assets/programs/multiplication-still.webp",
+    "width": 480,
+    "height": 300,
+    "video": "/assets/programs/multiplication.mp4"
+  },
+  "/kindergarten/podgotovka-k-shkole/": {
+    "src": "/assets/programs/school-preparation.webp",
+    "still": "/assets/programs/school-preparation-still.webp",
+    "width": 480,
+    "height": 239,
+    "video": "/assets/programs/school-preparation.mp4"
+  },
+  "/kindergarten/mentalnaya-arifmetika/": {
+    "src": "/assets/programs/mental-arithmetic-image.webp",
+    "avif": "/assets/programs/mental-arithmetic-image.avif",
+    "still": "/assets/programs/mental-arithmetic-image.webp",
+    "width": 900,
+    "height": 1200
+  },
+  "/kindergarten/vunderkind-1-2-3-stupen/": {
+    "src": "/assets/programs/wonder-child.webp",
+    "still": "/assets/programs/wonder-child-still.webp",
+    "width": 448,
+    "height": 598,
+    "video": "/assets/programs/wonder-child.mp4"
+  },
+  "/kindergarten/angliyskiy-yazyk/": {
+    "src": "/assets/programs/english.webp",
+    "still": "/assets/programs/english-still.webp",
+    "width": 480,
+    "height": 239,
+    "video": "/assets/programs/english.mp4"
+  },
+  "/kindergarten/gramotnoe-pismo-i-kalligrafiya/": {
+    "src": "/assets/programs/calligraphy.webp",
+    "still": "/assets/programs/calligraphy-still.webp",
+    "width": 480,
+    "height": 480,
+    "video": "/assets/programs/calligraphy.mp4"
+  }
+}
