@@ -1440,3 +1440,25 @@ html:has(:is(#intellect-home, #intellect-site)) { scroll-padding: 0; }
  #intellect-home .comfort-stories > .button { justify-self:start; width:fit-content; min-height:44px; padding:6px 7px 6px 18px; gap:14px; font-size:14px; border:0; }
  #intellect-home .comfort-stories > .button > span { width:32px; height:32px; background:var(--canvas); }
 }
+
+/* Desktop program cards: clearer artwork and an explicit course action. */
+@media (min-width:701px) {
+ #intellect-home .program-illustrated-card .program-card-body { gap:10px; }
+ #intellect-home .program-illustrated-card .program-duration { margin:0; padding:7px 12px; }
+ #intellect-home .program-mobile-link { display:inline-flex; align-items:center; align-self:flex-start; gap:12px; margin-top:auto; padding:6px 7px 6px 16px; min-height:44px; border-radius:30px; background:#fff; color:var(--ink); font-size:13px; line-height:1.3; box-shadow:0 2px 10px #10203014; }
+ #intellect-home .program-mobile-link i { display:grid; place-items:center; width:32px; height:32px; border-radius:50%; background:var(--canvas); font-size:19px; font-style:normal; }
+ #intellect-home .program-illustrated-card:focus-visible .program-mobile-link { background:var(--cream); }
+ @supports ((backdrop-filter:blur(8px)) or (-webkit-backdrop-filter:blur(8px))) {
+  #intellect-home .program-illustrated-card :is(h3,.program-duration) { background:rgba(248,251,255,.48); backdrop-filter:blur(8px) saturate(1.15); -webkit-backdrop-filter:blur(8px) saturate(1.15); box-shadow:inset 0 1px 0 #ffffffb3,inset 0 -1px 0 #ffffff40,0 2px 8px #1020300d; }
+ }
+}
+@media (min-width:701px) and (hover:hover) {
+ #intellect-home .program-illustrated-card:hover .program-mobile-link { background:var(--cream); }
+}
+@media (min-width:1101px) {
+ #intellect-home :is(.program-panel-2,.program-panel-3,.program-panel-8) .program-card-body { display:grid; grid-template-columns:minmax(0,1fr) auto; grid-template-rows:minmax(0,1fr) auto; align-items:start; column-gap:10px; }
+ #intellect-home :is(.program-panel-2,.program-panel-3,.program-panel-8) h3 { grid-column:1 / -1; }
+ #intellect-home :is(.program-panel-2,.program-panel-3,.program-panel-8) .program-duration { align-self:end; }
+ #intellect-home :is(.program-panel-2,.program-panel-3,.program-panel-8) .program-mobile-link { grid-column:2; align-self:end; }
+ #intellect-home .program-panel-4 .program-card-body { padding:16px; gap:8px; }
+}
